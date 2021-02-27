@@ -10,7 +10,7 @@ const config: webpack.Configuration = {
   module: {
     rules: [
       {
-        test: /\.ts(x)?$/,
+        test: /\.ts$/,
         loader: 'ts-loader',
         exclude: /node_modules/
       }
@@ -18,9 +18,7 @@ const config: webpack.Configuration = {
   },
   resolve: {
     extensions: [
-      '.tsx',
-      '.ts',
-      '.js'
+      '.ts'
     ]
   }
 }
