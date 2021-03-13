@@ -1,15 +1,11 @@
 /**
  * @jest-environment jsdom
  */
-import { JSDOM } from 'jsdom'
-
 import Barevich from './index'
 
 describe('Test Barevich class', () => {
   it('+++ Should be init with params', () => {
-    const jsdom = new JSDOM()
-    const node = jsdom.window.document.createElement('div')
-
+    const node = document.createElement('div')
     node.setAttribute('id', 'test')
 
     const MOCK_DATA = [{
@@ -31,8 +27,10 @@ describe('Test Barevich class', () => {
 
     const bar = new Barevich(MOCK_PARAMS)
 
+    const spy = jest.spyOn(bar, 'init')
+
     bar.init()
 
-    expect(bar.init).toBeCalled()
+    expect(spy).toBeCalledTimes(1)
   })
 })
